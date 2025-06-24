@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edit</title>
+    <title>Document</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
@@ -12,14 +12,15 @@
       <div class="nav">
         <a class="mb-10 text-blue-500" href="/read">Read All Users</a>
       </div>
-      <h1 class="text-3xl tracking-tighter mb-3">Create User</h1>
+      <h1 class="text-3xl tracking-tighter mb-3">Update User</h1>
 
-      <form action="/create" method="post">
+      <form action="/update/<%= user._id %>" method="post">
         <input
           class="px-5 py-2 bg-transparent border-2 boeder-zinc-800 outline-none rounded-lg"
           type="text"
           name="name"
           placeholder="Name"
+          value="<%= user.name %>"
         />
 
         <input
@@ -27,6 +28,7 @@
           type="text"
           name="email"
           placeholder="Email"
+          value="<%= user.email %>"
         />
 
         <input
@@ -34,12 +36,13 @@
           type="text"
           name="image"
           placeholder="Image url"
+          value="<%= user.image %>"
         />
 
         <input
-          class="px-5 py-2 bg-blue-400 rounded-full"
+          class="px-5 py-2 bg-yellow-500 text-black rounded-full"
           type="submit"
-          value="Create User"
+          value="Update User"
         />
       </form>
     </div>
