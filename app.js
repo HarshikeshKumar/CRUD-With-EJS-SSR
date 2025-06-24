@@ -18,6 +18,11 @@ app.get("/read", async (req, res) => {
   res.render("read", { users });
 });
 
+app.get("/delete/:id", async (req, res) => {
+  let users = await userSchema.findOneAndDelete({ _id: req.params.id });
+  res.redirect("/read");
+});
+
 app.post("/create", async (req, res) => {
   let { name, email, image } = req.body;
 
